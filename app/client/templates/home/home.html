@@ -1,5 +1,46 @@
 <template name="Home">
   <div class="home">
-    <h1>Find me in app\client\templates\home\home</h1>
+  	<h1>Your saves</h1>
+    <ul>
+      {{#each saves}}
+        {{> Save}}
+      {{/each}}
+    </ul>
   </div>
+  {{> Total}}
+
+  {{> Goal}}
+
+  {{> Progress}}
+
+  {{> Plan}}
+</template>
+
+<template name="Total">
+	<div>
+		<h2>Currently you have <span class='money'>{{total}}</span></h2>
+	</div>
+</template>
+
+<template name='Save'>
+	<li>You saved <span class='money'>{{amount}}</span> in {{date}}</li>
+</template>
+
+<template name="Goal">
+	<div>
+		<h1>Your current goal is <span>{{goal.name}}</span></h1>
+		<h2>You want to have <span class='money'>{{goal.amount}}</span> in {{until}} month</h2>		
+	</div>
+</template>
+
+<template name="Progress">
+	<div>
+		<h2>You've saved <span>{{percent}}%</span> of your goal</h2>		
+	</div>
+</template>
+
+<template name="Plan">
+	<div>
+		<h2>You need to save <span class='money'>{{monthly}}</span> each month</h2>		
+	</div>
 </template>
